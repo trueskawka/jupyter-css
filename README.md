@@ -25,49 +25,52 @@ Core functions in this code are:
     `render_html()`
 
 1. Writing CSS
-Write the CSS as a multiline string without curly brackets or class name, and assign it to a variable.
 
-```Python
-css = '''
-    background-color: red;
-    height: 100px;
-    width: 200px;
-'''
-```
+    Write the CSS as a multiline string without curly brackets or class name, and assign it to a variable.
+
+    ```Python
+    css = '''
+        background-color: red;
+        height: 100px;
+        width: 200px;
+    '''
+    ```
 
 2. Displaying elements
-To display an element with the CSS applied, call `render_html()` and provide it the CSS, class name and element number (n).
-Element number is added to the CSS class, so that the notebook can display multiple different divs with similar class
-names and different CSS at the same time. If no element number is provided, none will be appended.
 
-Examples:
-```
-render_html(css, 'box', 1)
-render_html(css, 'zigzag')
-```
+    To display an element with the CSS applied, call `render_html()` and provide it the CSS, class name and element number (n).
+    Element number is added to the CSS class, so that the notebook can display multiple different divs with similar class
+    names and different CSS at the same time. If no element number is provided, none will be appended.
+
+    Examples:
+    ```
+    render_html(css, 'box', 1)
+    render_html(css, 'zigzag')
+    ```
 
 3. Exporting to Markdown
-For the purpose of writing blog posts, for each element I want to export:
-- the CSS applied to the element as a code block
-- the `<style>` tag for the element
-- the `<div>` element with appropriate CSS class applied
 
-This is achieved through `render()`, e.g.:
-```
-render(css, 'box', 1)
-```
+    For the purpose of writing blog posts, for each element I want to export:
+    - the CSS applied to the element as a code block
+    - the `<style>` tag for the element
+    - the `<div>` element with appropriate CSS class applied
 
-Following [this answer](https://stackoverflow.com/questions/34818723/export-notebook-to-pdf-without-code/45029786#45029786)
-on StackOverflow, I created a stripped-down template for exporting the notebook (`./hidecode.tpl`), so I can directly use 
-the Markdown file on my blog (I use a Jekyll setup for the blog posts).
+    This is achieved through `render()`, e.g.:
+    ```
+    render(css, 'box', 1)
+    ```
 
-Place the template file and your notebook in the same directory and run:
-```
-jupyter nbconvert --to markdown --template hidecode <notebook_name>.ipynb
-```
+    Following [this answer](https://stackoverflow.com/questions/34818723/export-notebook-to-pdf-without-code/45029786#45029786)
+    on StackOverflow, I created a stripped-down template for exporting the notebook (`./hidecode.tpl`), so I can directly use 
+    the Markdown file on my blog (I use a Jekyll setup for the blog posts).
 
-This will create a Markdown file `<notebook_name>.md`. Any code cells in the notebook will be omitted, but all the other cell
-types (e.g. Markdown, SVG, PNG, HTML) will be preserved in the output.
+    Place the template file and your notebook in the same directory and run:
+    ```
+    jupyter nbconvert --to markdown --template hidecode <notebook_name>.ipynb
+    ```
+
+    This will create a Markdown file `<notebook_name>.md`. Any code cells in the notebook will be omitted, but all the other cell
+    types (e.g. Markdown, SVG, PNG, HTML) will be preserved in the output.
 
 ## Potential improvements
 
