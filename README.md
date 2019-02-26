@@ -1,4 +1,4 @@
-# CSS notes with Jupyter notebooks
+# CSS notes with Jupyter Notebook
 
 This is a Proof of Concept repository for taking CSS notes using [Jupyter Notebook](https://jupyter.org/).
 
@@ -12,7 +12,7 @@ I created it because:
 
 ## Prerequisites
 
-You need to install [Jupyter notebook](https://jupyter.org/install) and run it in this directory.
+You need to install [Jupyter Notebook](https://jupyter.org/install) and run it in this directory.
 
 ## How to use this code
 
